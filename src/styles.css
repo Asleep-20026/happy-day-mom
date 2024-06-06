@@ -1,0 +1,188 @@
+body {
+    font-family: 'EB Garamond', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFF8E1; /* Beige */
+    margin: 0;
+}
+
+/* Estilo para el contenedor de la flor y elementos */
+#cardContainer {
+    width: 100%; 
+    height: 100vh; 
+    position: relative; 
+}
+.hidden {
+    display: none;
+}
+
+#startAnimationBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #c521f7; 
+    color: #000000; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 4px rgba(205, 207, 39, 0.2);
+    justify-self: center ;
+    place-self: center;
+}
+#startAnimationBtn:hover {
+    background-color: #5fecd4; /* Cambiar color de fondo */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.hearts {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Alinea estrellas horizontalmente */
+    align-items: center; /* Centra estrellas verticalmente */
+}
+
+.heart {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #212ff7;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #534e05, 0 0 50px #21b3f7, 0 0 100px #f7cc21;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+* Establecer tamaños y colores aleatorios para los corazones */
+.heart:nth-child(1) {
+    --i: calc(20 + var(--random) * 10);
+    background-color: #f7cc21;
+}
+.heart:nth-child(2) {
+    --i: calc(10 + var(--random) * 10);
+    background-color: #f7cc21;
+}
+/* Establecer tamaños y colores aleatorios para los corazones */
+.heart:nth-child(1) {
+    --i: calc(20 + var(--random) * 10);
+    --translateY-start: calc(var(--random) * -1); /* Modificado */
+    --translateY-end: calc(var(--random) * 0.5);
+    --rotate-start: var(--random);
+    --rotate-end: calc(var(--random) + 1);
+    background-color: #f7cc21;
+}
+
+.heart:nth-child(2) {
+    --i: calc(10 + var(--random) * 10);
+    --translateY-start: calc(var(--random) * 0.1 * -1); /* Modificado */
+    --translateY-end: calc(var(--random) * 0.5 + 0.1);
+    --rotate-start: calc(var(--random) * 0.5);
+    --rotate-end: calc(var(--random) * 0.5 + 1);
+    background-color: #f7cc21;
+}
+
+/* Establecer tamaños y colores aleatorios para los corazones */
+.heart:nth-child(3) {
+    --i: calc(25 + var(--random) * 10);
+    --translateY-start: calc(var(--random) * 0.3 * -1); /* Modificado */
+    --translateY-end: calc(var(--random) * 0.7 + 0.1);
+    --rotate-start: calc(var(--random) * 0.3);
+    --rotate-end: calc(var(--random) * 0.3 + 1);
+    background-color: #f7cc21;
+}
+/* Cambios para los colores y sombras de los corazones pares e impares */
+.heart:nth-child(even) {
+    background-color: #dd21ee;
+    box-shadow: 0 0 0 10px #540c5a, 0 0 50px #dd21ee, 0 0 100px #dd21ee;
+}
+
+.cardFelizDia {
+    background-color: #F8BBD0; /* Rosado pálido */
+    padding: 20px;
+    color: #ff4081; /* Rosa */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    position: fixed; /* Cambia a fixed */
+    top: 50%; /* A 50% del top */
+    left: 50%; /* A 50% del left */
+    transform: translate(-50%, -50%); 
+    z-index: 200;
+}
+
+.letter {
+    background-color: #E0E0E0; /* Gris claro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.ribbon {
+    width: 0;
+    height: 0;
+    border-top: 20px solid #ff4081; /* Triángulo rosa */
+    border-right: 40px solid transparent; /* Lado derecho transparente */
+    border-left: 40px solid transparent; /* Lado izquierdo transparente */
+    position: absolute;
+    top: -20px; /* Posiciona arriba de la tarjeta */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra horizontalmente */
+}
+
+#imagen {
+    display: block;
+    width: 80%;
+    height: auto; /* Centra horizontalmente */
+    z-index: 1000;
+    position: fixed;
+    justify-self: center;
+    place-self: center;
+    margin-left: 6%;
+    margin-top: 10%;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+#botonRecuerdos {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff4081; /* Rosa */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+#botonRecuerdos:hover {
+    background-color: #f50057; /* Rosa más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+}
+
+#botonRecuerdos:focus {
+    outline: none; /* Quita el contorno al enfocar */
+}
+
+#botonRecuerdos:active {
+    transform: translateY(1px); /* Efecto de presión al hacer clic */
+    box-shadow: none; /* Quita la sombra al hacer clic */
+}
